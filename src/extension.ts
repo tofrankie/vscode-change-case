@@ -1,5 +1,5 @@
 import * as vscode from 'vscode'
-import { changeCaseCommands, runCommand, COMMANDS } from './change-case-commands'
+import { changeCaseCommands, COMMANDS, runCommand } from './commands'
 
 export function activate(context: vscode.ExtensionContext) {
   context.subscriptions.push(
@@ -7,7 +7,7 @@ export function activate(context: vscode.ExtensionContext) {
   )
   for (const command of COMMANDS) {
     context.subscriptions.push(
-      vscode.commands.registerCommand(`extension.changeCase.${command.id}`, () =>
+      vscode.commands.registerCommand(`extension.changeCase.${command.id}`, async () =>
         runCommand(command.id)
       )
     )

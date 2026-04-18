@@ -1,26 +1,18 @@
 {
+  "publisher": "frankie",
   "name": "change-case",
   "displayName": "Change Case",
+  "version": "1.0.0",
   "description": "Quickly change the case (camelCase, CONSTANT_CASE, snake_case, etc) of the current selection or current word",
-  "icon": "images/icon.png",
+  "license": "MIT",
+  "homepage": "https://github.com/tofrankie/vscode-change-case",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tofrankie/vscode-change-case.git"
   },
-  "homepage": "https://github.com/tofrankie/vscode-change-case",
   "bugs": {
     "url": "https://github.com/tofrankie/vscode-change-case/issues"
   },
-  "license": "MIT",
-  "version": "1.0.0",
-  "publisher": "frankie",
-  "engines": {
-    "vscode": "^1.88.0"
-  },
-  "categories": [
-    "Linters",
-    "Other"
-  ],
   "keywords": [
     "change case",
     "camel case",
@@ -40,7 +32,21 @@
     "upper case",
     "upper first"
   ],
+  "categories": [
+    "Linters",
+    "Other"
+  ],
   "main": "./dist/extension.cjs",
+  "icon": "images/icon.png",
+  "files": [
+    "LICENSE.md",
+    "README.md",
+    "dist",
+    "images"
+  ],
+  "engines": {
+    "vscode": "^1.88.0"
+  },
   "contributes": {
     "commands": [
       {
@@ -128,18 +134,38 @@
     "dev": "tsdown --watch",
     "build": "tsdown",
     "prepackage": "pnpm build",
-    "package": "vsce package"
-  },
-  "devDependencies": {
-    "@types/node": "^25.6.0",
-    "@types/vscode": "1.88.0",
-    "@vscode/vsce": "^3.9.1",
-    "tsdown": "^0.21.9",
-    "typescript": "^5.9.3"
+    "package": "vsce package",
+    "lint": "run-s lint:prettier lint:eslint typecheck",
+    "lint:eslint": "eslint . --cache --fix",
+    "lint:prettier": "prettier . --cache --write --log-level silent",
+    "typecheck": "tsc --noEmit",
+    "publint": "publint"
   },
   "dependencies": {
     "change-case": "^5.4.4",
     "swap-case": "^3.0.3",
     "title-case": "^4.3.2"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^20.5.0",
+    "@tofrankie/commitlint": "^0.0.6",
+    "@tofrankie/eslint": "^0.2.1",
+    "@tofrankie/prettier": "^0.2.0",
+    "@tofrankie/tsconfig": "^0.0.5",
+    "@types/node": "^25.6.0",
+    "@types/vscode": "1.88.0",
+    "@vscode/vsce": "^3.9.1",
+    "eslint": "^10.2.1",
+    "lint-staged": "^16.4.0",
+    "npm-run-all2": "^8.0.4",
+    "prettier": "^3.8.3",
+    "publint": "^0.3.18",
+    "simple-git-hooks": "^2.13.1",
+    "tsdown": "^0.21.9",
+    "typescript": "^5.9.3"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm lint-staged",
+    "commit-msg": "pnpm exec commitlint --edit $1"
   }
 }

@@ -1,8 +1,8 @@
-import * as vscode from 'vscode'
-import { EOL } from 'os'
+import { EOL } from 'node:os'
 import * as changeCase from 'change-case'
-import { titleCase } from 'title-case'
 import { swapCase } from 'swap-case'
+import { titleCase } from 'title-case'
+import * as vscode from 'vscode'
 
 export const COMMANDS = [
   {
@@ -117,7 +117,10 @@ export async function changeCaseCommands() {
   // otherwise use the description used in COMMANDS
   const items: vscode.QuickPickItem[] = COMMANDS.map(c => ({
     label: c.label,
-    description: firstSelectedText ? `Convert to ${c.func(firstSelectedText)}` : c.description,
+    description:
+      firstSelectedText != null && firstSelectedText !== ''
+        ? `Convert to ${c.func(firstSelectedText)}`
+        : c.description,
   }))
 
   const command = await vscode.window.showQuickPick(items, opts)
@@ -147,14 +150,15 @@ export async function runCommand(commandIdOrLabel: string) {
   const success = await editor.edit(editBuilder => {
     replacementActions = selections.map(selection => {
       const { text, range } = getSelectedText(selection, document)
-      if (!text || !range)
+      if (text == null || text === '') {
         return {
           text,
-          range: range || selection,
+          range: range ?? selection,
           replacement: undefined,
           offset: 0,
-          newRange: range || selection,
+          newRange: range ?? selection,
         }
+      }
 
       let replacement
       let offset = 0
@@ -186,16 +190,16 @@ export async function runCommand(commandIdOrLabel: string) {
     })
 
     replacementActions
-      .filter(x => x && x.replacement !== undefined && x.replacement !== x.text)
+      .filter(x => x.replacement !== undefined && x.replacement !== x.text)
       .forEach(x => {
         editBuilder.replace(x.range, x.replacement!)
       })
   })
 
   if (success) {
-    const sortedActions = replacementActions
-      .filter(x => x.range)
-      .sort((a, b) => compareByEndPosition(a.newRange, b.newRange))
+    const sortedActions = replacementActions.sort((a, b) =>
+      compareByEndPosition(a.newRange, b.newRange)
+    )
 
     const lineRunningOffsets = Array.from(new Set(sortedActions.map(s => s.range.end.line))).map(
       lineNumber => ({
@@ -214,7 +218,7 @@ export async function runCommand(commandIdOrLabel: string) {
         s.newRange.end.line,
         s.newRange.end.character + lineRunningOffset.runningOffset
       )
-      lineRunningOffset.runningOffset += s.offset || 0
+      lineRunningOffset.runningOffset += s.offset ?? 0
       return range
     })
 
@@ -250,17 +254,15 @@ function getSelectedText(
   }
 }
 
-const CHANGE_CASE_WORD_CHARACTER_REGEX = /([\w_\.\-\/$]+)/
-const CHANGE_CASE_WORD_CHARACTER_REGEX_WITHOUT_DOT = /([\w_\-\/$]+)/
+const CHANGE_CASE_WORD_CHARACTER_REGEX = /([\w.\-/$]+)/
+const CHANGE_CASE_WORD_CHARACTER_REGEX_WITHOUT_DOT = /([\w\-/$]+)/
 
 function getChangeCaseWordRangeAtPosition(
   document: vscode.TextDocument,
   position: vscode.Position
 ): vscode.Range | undefined {
   const configuration = vscode.workspace.getConfiguration('changeCase')
-  const includeDotInCurrentWord = configuration
-    ? configuration.get('includeDotInCurrentWord', false)
-    : false
+  const includeDotInCurrentWord = configuration.get('includeDotInCurrentWord', false)
   const regex = includeDotInCurrentWord
     ? CHANGE_CASE_WORD_CHARACTER_REGEX
     : CHANGE_CASE_WORD_CHARACTER_REGEX_WITHOUT_DOT

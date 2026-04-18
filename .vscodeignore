@@ -1,5 +1,14 @@
 .vscode/**
+node_modules/**
 src/**
-.gitignore
 pnpm-lock.yaml
+.gitignore
+.eslintcache
+.stylelintcache
+.prettierignore
 tsconfig.json
+tsdown.config.ts
+eslint.config.mjs
+prettier.config.mjs
+commitlint.config.mjs
+lint-staged.config.mjs

@@ -1,8 +1,9 @@
 {
+  "extends": "@tofrankie/tsconfig/node.lib.tsdown.json",
   "compilerOptions": {
-    "module": "commonjs",
-    "target": "es2021",
-    "lib": ["es2021"],
-    "outDir": "dist"
-  }
+    "types": ["node", "vscode"],
+    "target": "ES2021",
+    "lib": ["ES2021"]
+  },
+  "include": ["src/**/*.ts", "tsdown.config.ts"]
 }
