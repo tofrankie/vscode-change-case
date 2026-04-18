@@ -7,5 +7,6 @@ export default defineConfig({
   clean: true,
   deps: {
     neverBundle: ['vscode'],
+    alwaysBundle: ['change-case', 'swap-case', 'title-case'],
   },
 })

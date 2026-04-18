@@ -141,7 +141,7 @@
     "dev": "tsdown --watch",
     "build": "tsdown",
     "prepackage": "pnpm build",
-    "package": "vsce package --no-dependencies",
+    "package": "vsce package",
     "ext:publish": "vsxpub --exclude git",
     "lint": "run-s lint:prettier lint:eslint typecheck",
     "lint:eslint": "eslint . --cache --fix",
