@@ -26,25 +26,25 @@ Install from [Visual Studio Marketplace](https://marketplace.visualstudio.com/it
 
 ## Commands
 
-| Command ID                        | Title                  | Description                                                                            |
-| --------------------------------- | ---------------------- | -------------------------------------------------------------------------------------- |
-| `extension.changeCase.commands`   | Change Case Commands   | Quick pick of all variants below; shows a live preview when a single word is selected. |
-| `extension.changeCase.camel`      | Change Case camel      | camelCase — uppercase the letter after each separator.                                 |
-| `extension.changeCase.constant`   | Change Case constant   | CONSTANT_CASE — uppercase with underscores between words.                              |
-| `extension.changeCase.dot`        | Change Case dot        | Lowercase with dots between segments.                                                  |
-| `extension.changeCase.kebab`      | Change Case kebab      | kebab-case — lowercase, hyphen-separated (same style as **param**).                    |
-| `extension.changeCase.lower`      | Change Case lower      | All characters lowercased.                                                             |
-| `extension.changeCase.lowerFirst` | Change Case lowerFirst | Lowercase only the first character.                                                    |
-| `extension.changeCase.no`         | Change Case no         | no-case — lowercase, space-separated.                                                  |
-| `extension.changeCase.param`      | Change Case param      | kebab-case — lowercase, hyphen-separated.                                              |
-| `extension.changeCase.pascal`     | Change Case pascal     | PascalCase — like camelCase, with the first letter uppercased.                         |
-| `extension.changeCase.path`       | Change Case path       | Lowercase with slashes between segments.                                               |
-| `extension.changeCase.sentence`   | Change Case sentence   | Sentence case.                                                                         |
-| `extension.changeCase.snake`      | Change Case snake      | snake_case — lowercase with underscores.                                               |
-| `extension.changeCase.swap`       | Change Case swap       | Reverse upper/lower on each character.                                                 |
-| `extension.changeCase.title`      | Change Case title      | Title case — capitalise each word.                                                     |
-| `extension.changeCase.upper`      | Change Case upper      | All characters uppercased.                                                             |
-| `extension.changeCase.upperFirst` | Change Case upperFirst | Uppercase only the first character.                                                    |
+| Command ID                        | Title                  | Description                                                                                               |
+| --------------------------------- | ---------------------- | --------------------------------------------------------------------------------------------------------- |
+| `extension.changeCase.commands`   | Change Case Commands   | List all Change Case commands, with preview if only one word is selected.                                 |
+| `extension.changeCase.camel`      | Change Case camel      | Convert to a string with the separators denoted by having the next letter capitalised.                    |
+| `extension.changeCase.constant`   | Change Case constant   | Convert to an upper case, underscore separated string.                                                    |
+| `extension.changeCase.dot`        | Change Case dot        | Convert to a lower case, period separated string.                                                         |
+| `extension.changeCase.kebab`      | Change Case kebab      | Convert to a lower case, dash separated string (alias for param case).                                    |
+| `extension.changeCase.lower`      | Change Case lower      | Convert to a string in lower case.                                                                        |
+| `extension.changeCase.lowerFirst` | Change Case lowerFirst | Convert to a string with the first character lower cased.                                                 |
+| `extension.changeCase.no`         | Change Case no         | Convert the string without any casing (lower case, space separated).                                      |
+| `extension.changeCase.param`      | Change Case param      | Convert to a lower case, dash separated string.                                                           |
+| `extension.changeCase.pascal`     | Change Case pascal     | Convert to a string denoted in the same fashion as camelCase, but with the first letter also capitalised. |
+| `extension.changeCase.path`       | Change Case path       | Convert to a lower case, slash separated string.                                                          |
+| `extension.changeCase.sentence`   | Change Case sentence   | Convert to a lower case, space separated string.                                                          |
+| `extension.changeCase.snake`      | Change Case snake      | Convert to a lower case, underscore separated string.                                                     |
+| `extension.changeCase.swap`       | Change Case swap       | Convert to a string with every character case reversed.                                                   |
+| `extension.changeCase.title`      | Change Case title      | Convert to a space separated string with the first character of every word upper cased.                   |
+| `extension.changeCase.upper`      | Change Case upper      | Convert to a string in upper case.                                                                        |
+| `extension.changeCase.upperFirst` | Change Case upperFirst | Convert to a string with the first character upper cased.                                                 |
 
 ## License
 
