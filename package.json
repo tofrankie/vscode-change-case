@@ -28,6 +28,7 @@
     "path case",
     "sentence case",
     "snake case",
+    "spongebob case",
     "swap case",
     "title case",
     "upper case",
@@ -102,6 +103,10 @@
       {
         "command": "extension.changeCase.snake",
         "title": "Change Case snake"
+      },
+      {
+        "command": "extension.changeCase.spongebob",
+        "title": "Change Case spongebob"
       },
       {
         "command": "extension.changeCase.swap",

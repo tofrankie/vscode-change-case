@@ -41,6 +41,7 @@ Install from [Visual Studio Marketplace](https://marketplace.visualstudio.com/it
 | `extension.changeCase.path`       | Change Case path       | Convert to a lower case, slash separated string.                                                          |
 | `extension.changeCase.sentence`   | Change Case sentence   | Convert to a lower case, space separated string.                                                          |
 | `extension.changeCase.snake`      | Change Case snake      | Convert to a lower case, underscore separated string.                                                     |
+| `extension.changeCase.spongebob`  | Change Case spongebob  | Convert to alternating upper and lower case letters (SpongeBob / mocking meme style).                     |
 | `extension.changeCase.swap`       | Change Case swap       | Convert to a string with every character case reversed.                                                   |
 | `extension.changeCase.title`      | Change Case title      | Convert to a space separated string with the first character of every word upper cased.                   |
 | `extension.changeCase.upper`      | Change Case upper      | Convert to a string in upper case.                                                                        |

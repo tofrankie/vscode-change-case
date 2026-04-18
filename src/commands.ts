@@ -4,6 +4,8 @@ import { swapCase } from 'swap-case'
 import { titleCase } from 'title-case'
 import * as vscode from 'vscode'
 
+import { spongebobCase } from './utils'
+
 export const COMMANDS = [
   {
     id: 'camel',
@@ -78,6 +80,13 @@ export const COMMANDS = [
     label: 'snake',
     description: 'Convert to a lower case, underscore separated string',
     func: changeCase.snakeCase,
+  },
+  {
+    id: 'spongebob',
+    label: 'spongebob',
+    description:
+      'Convert to alternating upper and lower case letters (SpongeBob / mocking meme style)',
+    func: spongebobCase,
   },
   {
     id: 'swap',
