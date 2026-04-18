@@ -1,9 +1,9 @@
 {
   "extends": "@tofrankie/tsconfig/node.lib.tsdown.json",
   "compilerOptions": {
-    "types": ["node", "vscode"],
     "target": "ES2021",
-    "lib": ["ES2021"]
+    "lib": ["ES2021"],
+    "types": ["node", "vscode"]
   },
   "include": ["src/**/*.ts", "tsdown.config.ts"]
 }

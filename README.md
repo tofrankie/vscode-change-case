@@ -48,4 +48,4 @@ Install from [Visual Studio Marketplace](https://marketplace.visualstudio.com/it
 
 ## License
 
-MIT
+[MIT](./LICENSE) License © [Frankie](https://github.com/tofrankie)

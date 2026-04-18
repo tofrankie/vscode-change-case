@@ -39,6 +39,7 @@
   "main": "./dist/extension.cjs",
   "icon": "images/icon.png",
   "files": [
+    "CHANGELOG.md",
     "LICENSE.md",
     "README.md",
     "dist",
@@ -135,6 +136,7 @@
     "build": "tsdown",
     "prepackage": "pnpm build",
     "package": "vsce package",
+    "ext:publish": "vsxpub --exclude git",
     "lint": "run-s lint:prettier lint:eslint typecheck",
     "lint:eslint": "eslint . --cache --fix",
     "lint:prettier": "prettier . --cache --write --log-level silent",
@@ -162,7 +164,8 @@
     "publint": "^0.3.18",
     "simple-git-hooks": "^2.13.1",
     "tsdown": "^0.21.9",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "vsxpub": "^0.1.4"
   },
   "simple-git-hooks": {
     "pre-commit": "pnpm lint-staged",
